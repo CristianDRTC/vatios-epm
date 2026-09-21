@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root { font-family: 'DM Sans', sans-serif; color: #102a43; background: #f4f7f5; font-synthesis: none; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+.shell { max-width: 1100px; margin: 0 auto; padding: 24px 28px 72px; }
+.topbar { display: flex; align-items: center; gap: 10px; font: 700 14px 'Space Grotesk', sans-serif; letter-spacing: .12em; }
+.brand-mark { display: grid; place-items: center; width: 34px; height: 34px; background: #f06449; color: white; font-size: 18px; letter-spacing: 0; }
+.status { margin-left: auto; color: #39856a; font: 500 13px 'DM Sans', sans-serif; letter-spacing: 0; }
+.hero { padding: 94px 0 58px; max-width: 700px; }
+.eyebrow { color: #f06449; font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+h1, h2 { font-family: 'Space Grotesk', sans-serif; }
+h1 { margin: 16px 0; font-size: clamp(42px, 7vw, 76px); line-height: .98; letter-spacing: -.04em; }
+.intro { color: #627d98; font-size: 18px; line-height: 1.55; max-width: 510px; }
+.metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.metrics article { padding: 24px; border-top: 3px solid #102a43; background: white; box-shadow: 0 8px 24px #102a4310; }
+.metrics span, .section-heading span { color: #627d98; font-size: 13px; }
+.metrics strong { display: block; margin-top: 18px; font: 600 34px 'Space Grotesk', sans-serif; }
+.metrics small { font: 500 15px 'DM Sans', sans-serif; color: #627d98; }
+.readings { margin-top: 60px; }
+.section-heading { display: flex; align-items: baseline; justify-content: space-between; border-bottom: 1px solid #bcccdc; }
+.section-heading h2 { margin: 0 0 18px; font-size: 24px; }
+.table-wrap { overflow-x: auto; background: white; }
+table { width: 100%; border-collapse: collapse; text-align: left; }
+th, td { padding: 18px 22px; border-bottom: 1px solid #e6edf2; }
+th { color: #627d98; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+td { font-size: 15px; }
+.notice { margin: -22px 0 28px; padding: 14px 18px; background: #fff4e5; color: #8a4b08; }
+.empty { padding: 32px; color: #627d98; background: white; }
+@media (max-width: 650px) { .shell { padding: 18px 18px 48px; } .hero { padding: 70px 0 42px; } .metrics { grid-template-columns: 1fr; } .metrics strong { margin-top: 10px; } .section-heading { display: block; padding-bottom: 10px; } th, td { padding: 14px 12px; } }
