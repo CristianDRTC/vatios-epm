@@ -1,6 +1,10 @@
 import { useEffect, useState } from 'react';
 import { getReadings } from './api.js';
 
+const currencyFormatter = new Intl.NumberFormat('es-CO', {
+	maximumFractionDigits: 0
+});
+
 function App() {
 	const [readings, setReadings] = useState([]);
 	const [error, setError] = useState('');
@@ -19,11 +23,11 @@ function App() {
 			{error ? <p className="notice error">{error}. Inicia el backend para ver tus datos.</p> : null}
 			<section className="metrics" aria-label="Resumen de consumo">
 				<article><span>Consumo acumulado</span><strong>{totalKwh.toFixed(1)} <small>kWh</small></strong></article>
-				<article><span>Coste acumulado</span><strong>{totalCost.toFixed(2)} <small>€</small></strong></article>
+				<article><span>Coste acumulado</span><strong>{currencyFormatter.format(totalCost)} <small>COP</small></strong></article>
 				<article><span>Lecturas registradas</span><strong>{readings.length}</strong></article>
 			</section>
 			<section className="readings"><div className="section-heading"><h2>Lecturas recientes</h2><span>Últimos 30 registros</span></div>
-				{readings.length ? <div className="table-wrap"><table><thead><tr><th>Fecha</th><th>Consumo</th><th>Coste</th></tr></thead><tbody>{readings.map((reading) => <tr key={reading.id}><td>{new Date(reading.date).toLocaleDateString('es-ES', { month: 'long', year: 'numeric' })}</td><td>{reading.kwh.toFixed(1)} kWh</td><td>{reading.cost.toFixed(2)} €</td></tr>)}</tbody></table></div> : <p className="empty">Cargando lecturas...</p>}
+				{readings.length ? <div className="table-wrap"><table><thead><tr><th>Fecha</th><th>Consumo</th><th>Coste (COP)</th></tr></thead><tbody>{readings.map((reading) => <tr key={reading.id}><td>{new Date(reading.date).toLocaleDateString('es-ES', { month: 'long', year: 'numeric' })}</td><td>{reading.kwh.toFixed(1)} kWh</td><td>{currencyFormatter.format(reading.cost)} COP</td></tr>)}</tbody></table></div> : <p className="empty">Cargando lecturas...</p>}
 			</section>
 		</main>
 	);
